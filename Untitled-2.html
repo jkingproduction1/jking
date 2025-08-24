@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jking  Bank 2026</title>
+  <style>
+    body {
+      font-family: "Orbitron", sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background: #111;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    h1 { color: cyan; }
+    nav button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      background: linear-gradient(90deg, #06beb6, #48b1bf);
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    nav button:hover {
+      background: linear-gradient(90deg, #3a7bd5, #00d2ff);
+    }
+    main {
+      flex: 1;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border-radius: 12px;
+      margin: 15px;
+      overflow-y: auto;
+    }
+    footer {
+      background: #111;
+      padding: 10px;
+      text-align: center;
+    }
+    .chatbox {
+      border: 1px solid cyan;
+      padding: 10px;
+      height: 200px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+    .chat-input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🏦 Jking Bank 2026</h1>
+    <nav>
+      <button onclick="showSection('account')">💳 Account</button>
+      <button onclick="showSection('transfers')">💸 Transfers</button>
+      <button onclick="showSection('bills')">🧾 Bills</button>
+      <button onclick="showSection('deposit')">📷 Deposit</button>
+      <button onclick="showSection('locator')">📍 Locator</button>
+      <button onclick="showSection('budgeting')">📊 Budgeting</button>
+      <button onclick="showSection('investment')">📈 Invest</button>
+      <button onclick="showSection('wallet')">💼 Wallet</button>
+      <button onclick="showSection('chatbot')">🤖 Chatbot</button>
+      <button onclick="showSection('security')">🔒 Security</button>
+    </nav>
+  </header>
+   <!-- Embedding an image -->
+    <img src="sack of money,online ads,online….jpg" alt="A description of the image" width="200" height="200">
+</body>
+</html>
+  <main>
+    <div id="content-area">
+      <h2>Welcome to J Bank 2026 🌍</h2>
+      <p>Next-generation banking at your fingertips Your World Of [jking bank] Awaits
+
+We’re so glad you’re here! You are now part of a growing community of [professionals] creating, collaborating, and connecting across the globe via [Company’s tool].
+
+Whether you’ve joined to create [something of your own] or just to connect with [other professionals], we’ve got something for you.
+
+Let’s go!.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 J Bank – All Rights Reserved.</p>
+  </footer>
+
+  <!-- Chart.js for budgeting -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    const user = {
+      name: "Jking",
+      accountNumber: "8146386011",
+      balance: 5000000,
+      transactions: [
+        { type: "Deposit", amount: 2000000 },
+        { type: "Transfer", amount: -500000 },
+        { type: "Bill Payment", amount: -300000 }
+      ]
+    };
+
+    function showSection(section) {
+      const content = document.getElementById("content-area");
+
+      if (section === "account") {
+        content.innerHTML = `
+          <h2>Account Management</h2>
+          <p><b>Name:</b> ${user.name}</p>
+          <p><b>Account No:</b> ${user.accountNumber}</p>
+          <p><b>Balance:</b> ₦${user.balance.toLocaleString()}</p>
+          <h3>Transactions:</h3>
+          <ul>${user.transactions.map(t => `<li>${t.type}: ₦${t.amount.toLocaleString()}</li>`).join("")}</ul>
+        `;
+      }
+
+      if (section === "transfers") {
+        content.innerHTML = `
+          <h2>Money Transfers</h2>
+          <p>Send money: Internal, External, P2P, Wire.</p>
+          <input type="text" id="toAcc" placeholder="To Account"><br><br>
+          <input type="number" id="amount" placeholder="Amount"><br><br>
+          <button onclick="makeTransfer()">Send</button>
+        `;
+      }
+
+      if (section === "bills") {
+        content.innerHTML = `
+          <h2>Bill Payments</h2>
+          <select id="billType">
+            <option>Electricity</option>
+            <option>Water</option>
+            <option>Internet</option>
+            <option>Netflix</option>
+          </select><br><br>
+          <input type="number" id="billAmt" placeholder="Amount"><br><br>
+          <button onclick="payBill()">Pay Bill</button>
+        `;
+      }
+
+      if (section === "deposit") {
+        content.innerHTML = `
+          <h2>Mobile Check Deposit</h2>
+          <input type="file" accept="image/*"><br><br>
+          <button onclick="alert('Check uploaded for processing!')">Upload</button>
+        `;
+      }
+
+      if (section === "locator") {
+        content.innerHTML = `
+          <h2>ATM & Branch Locator</h2>
+          <p>Nearest ATM: J Bank HQ, Lagos.</p>
+          <iframe src="https://maps.google.com/maps?q=lagos&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="300"></iframe>
+        `;
+      }
+
+      if (section === "budgeting") {
+        content.innerHTML = `<h2>Budgeting Tools</h2><canvas id="budgetChart"></canvas>`;
+        setTimeout(() => {
+          new Chart(document.getElementById("budgetChart"), {
+            type: "doughnut",
+            data: {
+              labels: ["Bills", "Food", "Savings", "Entertainment"],
+              datasets: [{
+                data: [30000, 50000, 200000, 20000],
+                backgroundColor: ["red", "orange", "green", "blue"]
+              }]
+            }
+          });
+        }, 100);
+      }
+
+      if (section === "investment") {
+        content.innerHTML = `
+          <h2>Investments</h2>
+          <p>Choose: Stocks, Crypto, Savings Plan.</p>
+          <button onclick="alert('Invested in Stocks!')">📈 Stocks</button>
+          <button onclick="alert('Invested in Crypto!')">🪙 Crypto</button>
+          <button onclick="alert('Savings Plan Activated!')">💰 Savings</button>
+        `;
+      }
+
+      if (section === "wallet") {
+        content.innerHTML = `
+          <h2>Digital Wallet</h2>
+          <p>Link to Apple Pay, Google Pay, PayPal.</p>
+          <button onclick="alert('Apple Pay Linked!')">🍎 Apple Pay</button>
+          <button onclick="alert('Google Pay Linked!')">🤖 Google Pay</button>
+          <button onclick="alert('PayPal Linked!')">💲 PayPal</button>
+        `;
+      }
+
+      if (section === "chatbot") {
+        content.innerHTML = `
+          <h2>AI Chatbot 🤖</h2>
+          <div class="chatbox" id="chatbox"></div>
+          <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything..." 
+          onkeypress="if(event.key==='Enter'){chatbotSend()}">
+        `;
+      }
+
+      if (section === "security") {
+        content.innerHTML = `
+          <h2>Security Center</h2>
+          <p>🔑 Biometric login enabled (Face ID / Fingerprint)</p>
+          <p>⚠️ No fraud detected.</p>
+        `;
+      }
+    }
+
+    function makeTransfer() {
+      const acc = document.getElementById("toAcc").value;
+      const amt = parseInt(document.getElementById("amount").value);
+      if (amt > 0 && acc) {
+        user.balance -= amt;
+        user.transactions.push({ type: "Transfer to " + acc, amount: -amt });
+        alert("Transfer successful!");
+        showSection("account");
+      }
+    }
+
+    function payBill() {
+      const bill = document.getElementById("billType").value;
+      const amt = parseInt(document.getElementById("billAmt").value);
+      if (amt > 0) {
+        user.balance -= amt;
+        user.transactions.push({ type: bill + " Bill", amount: -amt });
+        alert(bill + " Bill Paid!");
+        showSection("account");
+      }
+    }
+
+    function chatbotSend() {
+      const input = document.getElementById("chatInput").value;
+      const chatbox = document.getElementById("chatbox");
+      if (!input) return;
+      chatbox.innerHTML += `<p><b>you:</b> ${input}</p>`;
+      let reply = "I'm here to help!";
+      if (input.toLowerCase().includes("balance")) reply = `Your balance is ₦${user.balance.toLocaleString()}`;
+      if (input.toLowerCase().includes("transfer")) reply = "Go to Transfers to send money.";
+      if (input.toLowerCase().includes("hello")) reply = "Hello 👋! How can I help?";
+      chatbox.innerHTML += `<p><b>jking Ai:</b> ${reply}</p>`;
+      document.getElementById("chatInput").value = "";
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+  </script>
+</body>
+</html>
